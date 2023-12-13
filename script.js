@@ -12,14 +12,14 @@ const changeTurn = () => {
 const checkWin = () => {
   let boxtext = document.getElementsByClassName("boxtext");
   let Wins = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
+    [0, 1, 2, 3, 7, 0],
+    [3, 4, 5, 3, 15.5, 0],
+    [6, 7, 8, 3, 24, 0],
+    [0, 3, 6, -5.4, 15.2, 90],
+    [1, 4, 7, 3.1, 15.2, 90],
+    [2, 5, 8, 11.5, 15, 90],
+    [0, 4, 8, 3, 15, 45],
+    [2, 4, 6, 3, 15, 137],
   ];
   Wins.forEach((e) => {
     if (
@@ -30,6 +30,10 @@ const checkWin = () => {
       document.querySelector(".info").innerText =
         "Congratulation...  " + boxtext[e[0]].innerText + " " + "Won";
       gameOver = true;
+      document.querySelector(".line").style.width = "20vw";
+      document.querySelector(
+        ".line"
+      ).style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`;
     }
   });
 };
@@ -60,5 +64,7 @@ replay.addEventListener("click", () => {
     element.innerText = "";
   });
   turn = "X";
+  document.querySelector(".line").style.width = "0vw";
+
   document.getElementsByClassName("info")[0].innerText = "Turn For : " + turn;
 });
