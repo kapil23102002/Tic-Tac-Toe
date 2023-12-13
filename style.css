@@ -5,6 +5,11 @@
 	position: relative;
 }
 
+.navbar-brand{
+	margin: auto;
+
+}
+
 .container #turn{
 	display: block;
 	text-align: center;
