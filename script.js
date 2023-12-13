@@ -7,6 +7,8 @@ const changeTurn = () => {
   return turn === "X" ? "0" : "X";
 };
 
+// ------ User Won Logic ---------
+
 const checkWin = () => {
   let boxtext = document.getElementsByClassName("boxtext");
   let Wins = [
@@ -48,4 +50,15 @@ Array.from(boxes).forEach((element) => {
       }
     }
   });
+});
+
+// ------------------Reset Logic ---------------
+
+replay.addEventListener("click", () => {
+  let boxtext = document.querySelectorAll(".boxtext");
+  Array.from(boxtext).forEach((element) => {
+    element.innerText = "";
+  });
+  turn = "X";
+  document.getElementsByClassName("info")[0].innerText = "Turn For : " + turn;
 });
